@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ContadorViewModel {
 
-    public String data = "0";
+    public String data;
     public int contador = 0;
 
     @Override

@@ -47,6 +47,7 @@ public class ContadorPresenter implements ContadorContract.Presenter {
             String data = model.fetchData();
 
             // set initial state
+            //El estado inicial es "0" -> mensaje del modelo es "0"
             viewModel.data = data;
         }
 
@@ -60,10 +61,11 @@ public class ContadorPresenter implements ContadorContract.Presenter {
         //En caso de llegar al 9 volver al 0
         if(viewModel.contador == 9){
             viewModel.contador = 0;
+        } else{
+            viewModel.contador = viewModel.contador + 1;
         }
-        viewModel.contador = viewModel.contador + 1;
         viewModel.data = "" + viewModel.contador;
-
+        view.get().displayData(viewModel);
     }
 
 
