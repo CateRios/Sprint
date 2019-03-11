@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Sprint</string>
+    <string name="boton_inc">Contar</string>
     <string name="message">0</string>
 </resources>
