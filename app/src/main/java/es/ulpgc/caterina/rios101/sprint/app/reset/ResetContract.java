@@ -20,6 +20,8 @@ interface ResetContract {
         void injectRouter(Router router);
 
         void fetchData();
+
+        void reset();
     }
 
     interface Model {

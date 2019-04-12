@@ -41,11 +41,18 @@ public class ResetPresenter implements ResetContract.Presenter {
         // set passed state
         ContadorState state = router.getDataFromPreviousScreen();
 
-        viewModel.data = "" + state.contadorDeClicks;
+       // viewModel.data = "" + state.contadorDeClicks;
 
         // update the view
         view.get().displayData(viewModel);
 
+    }
+
+    @Override
+    public void reset(){
+        ResetState resetState = new ResetState(0,0);
+        router.passDataToNextScreen(resetState);
+        router.navigateToNextScreen();
     }
 
 

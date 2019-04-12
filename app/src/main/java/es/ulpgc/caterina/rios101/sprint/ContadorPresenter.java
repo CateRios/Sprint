@@ -34,7 +34,7 @@ public class ContadorPresenter implements ContadorContract.Presenter {
 
     @Override
     public void fetchData() {
-        Log.e(TAG, "" + model.fetchData());
+        Log.e(TAG, "Contador" + model.fetchData());
 
         // set passed state
         ContadorState state = router.getDataFromPreviousScreen();

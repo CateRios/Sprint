@@ -4,6 +4,7 @@ import android.util.Log;
 import android.content.Intent;
 import android.content.Context;
 
+import es.ulpgc.caterina.rios101.sprint.ContadorActivity;
 import es.ulpgc.caterina.rios101.sprint.ContadorState;
 import es.ulpgc.caterina.rios101.sprint.app.AppMediator;
 
@@ -20,7 +21,8 @@ public class ResetRouter implements ResetContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, ResetActivity.class);
+        Intent intent = new Intent(context, ContadorActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 

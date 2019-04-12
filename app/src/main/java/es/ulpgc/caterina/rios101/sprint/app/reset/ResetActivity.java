@@ -3,6 +3,8 @@ package es.ulpgc.caterina.rios101.sprint.app.reset;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.caterina.rios101.sprint.R;
@@ -14,10 +16,23 @@ public class ResetActivity
 
     private ResetContract.Presenter presenter;
 
+    private Button botonReset;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
+
+        botonReset = findViewById(R.id.resetButton);
+
+
+        botonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.reset();
+                finish();
+            }
+        });
 
         // do the setup
         ResetScreen.configure(this);
@@ -39,6 +54,6 @@ public class ResetActivity
     @Override
     public void displayData(ResetViewModel viewModel) {
         //Log.e(TAG, "displayData()");
-        ((TextView) findViewById(R.id.resetData)).setText(viewModel.data);
+//        ((TextView) findViewById(R.id.resetData)).setText(viewModel.data);
     }
 }
