@@ -28,7 +28,7 @@ public class ResetActivity
         super.onResume();
 
         // do some work
-        presenter.fetchData();
+       presenter.fetchData();
     }
 
     @Override
@@ -39,8 +39,6 @@ public class ResetActivity
     @Override
     public void displayData(ResetViewModel viewModel) {
         //Log.e(TAG, "displayData()");
-
-        // deal with the data
-        ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        ((TextView) findViewById(R.id.resetData)).setText(viewModel.data);
     }
 }

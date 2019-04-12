@@ -20,6 +20,10 @@ interface ContadorContract {
         void fetchData();
 
         void updateContadorData();
+
+        void updateClicks();
+
+        void goToReset();
     }
 
     interface Model {
@@ -27,7 +31,16 @@ interface ContadorContract {
         int fetchData();
 
         void incrementarContador();
-    }
+
+        void incrementarClicks();
+
+        public int getContador();
+
+        public void setContador(int contador);
+
+        public int getContadorDeClicks();
+
+        public void setContadorDeClicks(int contadorDeClicks);}
 
     interface Router {
         void navigateToNextScreen();

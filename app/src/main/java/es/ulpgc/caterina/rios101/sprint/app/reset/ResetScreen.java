@@ -4,6 +4,8 @@ import java.lang.ref.WeakReference;
 
 import android.support.v4.app.FragmentActivity;
 
+import es.ulpgc.caterina.rios101.sprint.app.AppMediator;
+
 public class ResetScreen {
 
     public static void configure(ResetContract.View view) {

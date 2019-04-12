@@ -4,6 +4,9 @@ import android.util.Log;
 import android.content.Intent;
 import android.content.Context;
 
+import es.ulpgc.caterina.rios101.sprint.ContadorState;
+import es.ulpgc.caterina.rios101.sprint.app.AppMediator;
+
 public class ResetRouter implements ResetContract.Router {
 
     public static String TAG = ResetRouter.class.getSimpleName();
@@ -27,8 +30,8 @@ public class ResetRouter implements ResetContract.Router {
     }
 
     @Override
-    public ResetState getDataFromPreviousScreen() {
-        ResetState state = mediator.getResetState();
+    public ContadorState getDataFromPreviousScreen() {
+        ContadorState state = mediator.getContadorState();
         return state;
     }
 }

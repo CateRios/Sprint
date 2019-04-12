@@ -15,6 +15,7 @@ public class ContadorActivity
     private ContadorContract.Presenter presenter;
 
     Button botonInc;
+    Button botonReset;
     TextView textContador;
 
     @Override
@@ -25,14 +26,24 @@ public class ContadorActivity
         getSupportActionBar().setTitle("Contador");
 
         botonInc = findViewById(R.id.botonInc);
+        botonReset = findViewById(R.id.botonReset);
         textContador = findViewById(R.id.textContador);
 
         botonInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.updateContadorData();
+                presenter.fetchData();
             }
         });
+
+        botonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.goToReset();
+            }
+        });
+
 
         // do the setup
         ContadorScreen.configure(this);

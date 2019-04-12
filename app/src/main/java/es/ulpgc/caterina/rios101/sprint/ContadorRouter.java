@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.caterina.rios101.sprint.app.AppMediator;
+import es.ulpgc.caterina.rios101.sprint.app.reset.ResetActivity;
 
 public class ContadorRouter implements ContadorContract.Router {
 
@@ -19,7 +20,8 @@ public class ContadorRouter implements ContadorContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, ContadorActivity.class);
+        Intent intent = new Intent(context, ResetActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 

@@ -2,6 +2,8 @@ package es.ulpgc.caterina.rios101.sprint.app.reset;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.sprint.ContadorState;
+
 interface ResetContract {
 
     interface View {
@@ -29,6 +31,6 @@ interface ResetContract {
 
         void passDataToNextScreen(ResetState state);
 
-        ResetState getDataFromPreviousScreen();
+        ContadorState getDataFromPreviousScreen();
     }
 }

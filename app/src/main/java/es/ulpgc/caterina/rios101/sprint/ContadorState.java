@@ -2,18 +2,12 @@ package es.ulpgc.caterina.rios101.sprint;
 
 public class ContadorState extends ContadorViewModel {
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int contadorDeClicks;
+    public int contador;
+
+    public ContadorState(int contadorDeClicks, int contador) {
+        this.contadorDeClicks = contadorDeClicks;
+        this.contador = contador;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }
