@@ -13,7 +13,6 @@ public class ContadorScreen {
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
 
-        String message = context.get().getString(R.string.message);
 
         AppMediator mediator = (AppMediator) context.get().getApplication();
         ContadorState state = mediator.getContadorState();
@@ -21,7 +20,7 @@ public class ContadorScreen {
         ContadorContract.Router router = new ContadorRouter(mediator);
         ContadorContract.Presenter presenter = new ContadorPresenter(state);
         //Inyectar el modelo con un "0" para el estado inicial
-        ContadorContract.Model model = new ContadorModel(message);
+        ContadorContract.Model model = new ContadorModel();
         presenter.injectModel(model);
         presenter.injectRouter(router);
         presenter.injectView(new WeakReference<>(view));

@@ -5,21 +5,30 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.FragmentActivity;
 
 public class ContadorModel implements ContadorContract.Model {
 
     public static String TAG = ContadorModel.class.getSimpleName();
 
-    private String data;
+    private int contador;
 
-    public ContadorModel(String data) {
-        this.data = data;
+    public ContadorModel() {
+
     }
 
     @Override
-    public String fetchData() {
+    public int fetchData() {
         // Log.e(TAG, "fetchData()");
-        return data;
+        return contador;
+    }
+
+    @Override
+    public void incrementarContador(){
+        if(contador < 9){
+            contador = contador +1;
+        }else{
+            contador = 0;
+        }
+
     }
 }

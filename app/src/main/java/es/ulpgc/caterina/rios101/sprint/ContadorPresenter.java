@@ -44,11 +44,11 @@ public class ContadorPresenter implements ContadorContract.Presenter {
 
         if (viewModel.data == null) {
             // call the model
-            String data = model.fetchData();
+            int data = model.fetchData();
 
             // set initial state
             //El estado inicial es "0" -> mensaje del modelo es "0"
-            viewModel.data = data;
+            viewModel.data = "" + data;
         }
 
         // update the view
@@ -58,13 +58,7 @@ public class ContadorPresenter implements ContadorContract.Presenter {
 
     @Override
     public void updateContadorData(){
-        //En caso de llegar al 9 volver al 0
-        if(viewModel.contador == 9){
-            viewModel.contador = 0;
-        } else{
-            viewModel.contador = viewModel.contador + 1;
-        }
-        viewModel.data = "" + viewModel.contador;
+        model.incrementarContador();
         view.get().displayData(viewModel);
     }
 

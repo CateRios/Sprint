@@ -1,13 +1,13 @@
-package es.ulpgc.caterina.rios101.sprint;
+package es.ulpgc.caterina.rios101.sprint.app.reset;
 
 import java.lang.ref.WeakReference;
 
-interface ContadorContract {
+interface ResetContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void displayData(ContadorViewModel viewModel);
+        void displayData(ResetViewModel viewModel);
     }
 
     interface Presenter {
@@ -18,22 +18,17 @@ interface ContadorContract {
         void injectRouter(Router router);
 
         void fetchData();
-
-        void updateContadorData();
     }
 
     interface Model {
-
-        int fetchData();
-
-        void incrementarContador();
+        String fetchData();
     }
 
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(ContadorState state);
+        void passDataToNextScreen(ResetState state);
 
-        ContadorState getDataFromPreviousScreen();
+        ResetState getDataFromPreviousScreen();
     }
 }
