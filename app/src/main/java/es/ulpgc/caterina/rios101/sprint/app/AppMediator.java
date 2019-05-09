@@ -16,6 +16,7 @@ public class AppMediator extends Application {
         super.onCreate();
 
         contadorState = new ContadorState(0,0);
+        resetState = new ResetState();
     }
 
     public ContadorState getContadorState() {

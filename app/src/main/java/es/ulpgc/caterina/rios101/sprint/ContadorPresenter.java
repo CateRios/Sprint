@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.sprint.app.reset.ResetState;
+
 public class ContadorPresenter implements ContadorContract.Presenter {
 
     public static String TAG = ContadorPresenter.class.getSimpleName();
@@ -34,12 +36,13 @@ public class ContadorPresenter implements ContadorContract.Presenter {
 
     @Override
     public void fetchData() {
-        Log.e(TAG, "Contador" + model.fetchData());
-
         // set passed state
-        ContadorState state = router.getDataFromPreviousScreen();
+
+        ResetState state = router.getDataFromPreviousScreen();
+
         if (state != null) {
-            viewModel.data = state.data;
+            model.setContador(state.getContador());
+            model.setContadorDeClicks(state.getContadorDeClicks());
         }
 
         if (viewModel.data == null) {
@@ -59,6 +62,11 @@ public class ContadorPresenter implements ContadorContract.Presenter {
     @Override
     public void updateContadorData(){
         model.incrementarContador();
+        //call the model
+        int data = model.fetchData();
+        viewModel.data = "" + data;
+        //update the view
+        view.get().displayData(viewModel);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package es.ulpgc.caterina.rios101.sprint.app.reset;
 
-import android.util.Log;
-
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.caterina.rios101.sprint.ContadorState;
@@ -36,12 +34,22 @@ public class ResetPresenter implements ResetContract.Presenter {
 
     @Override
     public void fetchData() {
-        // Log.e(TAG, "fetchData()");
+
 
         // set passed state
-        ContadorState state = router.getDataFromPreviousScreen();
+       ContadorState state = router.getDataFromPreviousScreen();
 
-       // viewModel.data = "" + state.contadorDeClicks;
+        if(state != null){
+            viewModel.data = "" + state.contadorDeClicks;
+        }
+
+       if (viewModel.data == null) {
+            // call the model
+            String data = model.fetchData();
+
+            // set initial state
+            viewModel.data = data;
+        }
 
         // update the view
         view.get().displayData(viewModel);
@@ -50,7 +58,9 @@ public class ResetPresenter implements ResetContract.Presenter {
 
     @Override
     public void reset(){
-        ResetState resetState = new ResetState(0,0);
+        ResetState resetState = new ResetState();
+        resetState.setContador(0);
+        resetState.setContadorDeClicks(0);
         router.passDataToNextScreen(resetState);
         router.navigateToNextScreen();
     }

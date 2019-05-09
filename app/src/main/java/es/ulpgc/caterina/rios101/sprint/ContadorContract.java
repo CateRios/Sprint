@@ -2,6 +2,8 @@ package es.ulpgc.caterina.rios101.sprint;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.sprint.app.reset.ResetState;
+
 interface ContadorContract {
 
     interface View {
@@ -40,13 +42,15 @@ interface ContadorContract {
 
         public int getContadorDeClicks();
 
-        public void setContadorDeClicks(int contadorDeClicks);}
+        public void setContadorDeClicks(int contadorDeClicks);
+
+    }
 
     interface Router {
         void navigateToNextScreen();
 
         void passDataToNextScreen(ContadorState state);
 
-        ContadorState getDataFromPreviousScreen();
+        ResetState getDataFromPreviousScreen();
     }
 }

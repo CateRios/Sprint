@@ -6,6 +6,7 @@ import android.content.Context;
 
 import es.ulpgc.caterina.rios101.sprint.app.AppMediator;
 import es.ulpgc.caterina.rios101.sprint.app.reset.ResetActivity;
+import es.ulpgc.caterina.rios101.sprint.app.reset.ResetState;
 
 public class ContadorRouter implements ContadorContract.Router {
 
@@ -31,8 +32,8 @@ public class ContadorRouter implements ContadorContract.Router {
     }
 
     @Override
-    public ContadorState getDataFromPreviousScreen() {
-        ContadorState state = mediator.getContadorState();
+    public ResetState getDataFromPreviousScreen() {
+        ResetState state = mediator.getResetState();
         return state;
     }
 }

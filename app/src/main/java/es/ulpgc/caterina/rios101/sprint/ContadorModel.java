@@ -1,10 +1,5 @@
 package es.ulpgc.caterina.rios101.sprint;
 
-import android.util.Log;
-
-import java.lang.ref.WeakReference;
-
-import android.support.v7.app.AppCompatActivity;
 
 public class ContadorModel implements ContadorContract.Model {
 
@@ -19,8 +14,7 @@ public class ContadorModel implements ContadorContract.Model {
 
     @Override
     public int fetchData() {
-        // Log.e(TAG, "fetchData()");
-        return contador;
+        return getContador();
     }
 
     @Override

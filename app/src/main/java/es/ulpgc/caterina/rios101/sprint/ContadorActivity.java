@@ -33,7 +33,7 @@ public class ContadorActivity
             @Override
             public void onClick(View v) {
                 presenter.updateContadorData();
-                presenter.fetchData();
+                presenter.updateClicks();
             }
         });
 
@@ -64,8 +64,6 @@ public class ContadorActivity
 
     @Override
     public void displayData(ContadorViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
-
         // deal with the data
         ((TextView) findViewById(R.id.textContador)).setText(viewModel.data);
     }

@@ -19,6 +19,11 @@ public class ResetActivity
     private Button botonReset;
 
     @Override
+    public void injectPresenter(ResetContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset);
@@ -47,13 +52,8 @@ public class ResetActivity
     }
 
     @Override
-    public void injectPresenter(ResetContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void displayData(ResetViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
-//        ((TextView) findViewById(R.id.resetData)).setText(viewModel.data);
+        Log.e(TAG, "displayData()");
+        ((TextView) findViewById(R.id.resetData)).setText(viewModel.data);
     }
 }
